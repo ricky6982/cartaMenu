@@ -1,0 +1,15 @@
+{
+  "name": "cartaMenu",
+  "version": "0.1.0",
+  "authors": [
+    "RickySSD <ricky6982@gmail.com>"
+  ],
+  "description": "Creación de Cartas de Menú para Confiterias y/o Restaurantes.",
+  "license": "MIT",
+  "homepage": "ricky6982.github.io/me",
+  "dependencies": {
+    "angular": "~1.4.6",
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4"
+  }
+}
