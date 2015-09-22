@@ -1,0 +1,35 @@
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        title Practica de Creación de Grafos
+        link(rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css")
+        link(rel="stylesheet" href="../bower_components/animate.css/animate.min.css")
+        link(rel="stylesheet" href="../css/main.css")
+
+        script(src="../bower_components/jquery/dist/jquery.js")
+        script(src="../bower_components/angular/angular.min.js")
+        script(src="../bower_components/bootstrap/dist/js/bootstrap.min.js")
+        script(src="../bower_components/vis/dist/vis.min.js")
+        block javascripts
+            
+
+body(ng-app="app" ng-controller="AppCtrl")
+    header
+        h1 Prototipo Carta de Menú
+        h2 Creación del prototipo para que el dueño de una confiteria cree la Carta de Menú
+
+    legend(class="text-center") 
+        block titulo
+            | Prueba de Libreria Visjs con AngularJs
+
+    div(class="container")
+        //- Descripción del Prototipo
+        div(class="well well-sm")
+            strong Objetivo:
+            block objetivo
+
+        div(class="row", style="margin: 10px;")
+            block contenido
+
+

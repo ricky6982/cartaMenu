@@ -1,2 +1,15 @@
+mixin boxPrototype(title, folder)
+    -var link = folder + "/index.html"
+    div(class="col-sm-6") 
+        div(class="well")
+            legend(class="text-center")=title
+            block
+            p(class="text-center")
+                a(href=link, class="btn btn-primary") Ir al Prototipo
+
 extend layout.jade
 
+block prototipo
+    div(class="row")
+        +boxPrototype('Prototipo 1', 'app1')
+            include ./app1/objetivo.jade

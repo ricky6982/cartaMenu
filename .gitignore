@@ -7,6 +7,10 @@ bower_components/angular/*.*
 !bower_components/angular/angular.min.js
 !bower_components/angular/angular.min.js.map
 
+!bower_components/animate.css
+bower_components/animate.css/source
+
+
 !bower_components/bootstrap
 bower_components/bootstrap/*
 !bower_components/bootstrap/dist
