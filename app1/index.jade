@@ -3,10 +3,8 @@ extends layout.jade
 block javascripts
     script(src="js/app.js")
 
+block objetivo
+    include objetivo.jade
+
 block contenido
-    div(class="row")
-        div(class="col-sm-6 col-sm-offset-3")
-            div(class="well animated fadeInUp")
-                h2(class="text-center" style="margin-bottom: 30px;") Area Administrador
-                button(class="btn btn-primary btn-lg btn-block animated bounceInLeft") Información de la Confitería
-                button(class="btn btn-primary btn-lg btn-block animated bounceInRight") Carta de Menú
+    div(class="row", ui-view)
