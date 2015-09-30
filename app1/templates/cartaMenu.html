@@ -1,8 +1,8 @@
 
 <div class="col-sm-10 col-sm-offset-1 animated zoomIn">
   <h1>Edición de la Carta de Menú</h1>
-  <div ng-repeat="categoria in [0,1,2,3,4]">
-    <legend>Desayuno</legend>
+  <div ng-repeat="categoria in cartaMenu">
+    <legend>{{ categoria.nombre }}</legend>
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
@@ -12,17 +12,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Café Doble</td>
-          <td>$ 16.00</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Café con Leche Doble</td>
-          <td>$ 18.00</td>
+        <tr ng-repeat="producto in categoria.productos">
+          <td>{{ $index + 1}}</td>
+          <td>{{ producto.nombre }}</td>
+          <td>$ {{ producto.precio }}</td>
         </tr>
       </tbody>
     </table>
   </div>
+  <pre>{{ cartaMenu | json }}</pre>
 </div>

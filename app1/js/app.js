@@ -25,6 +25,23 @@ app.config([
 app.controller('AppCtrl', [
     '$scope',
     function($scope){
-
+        $scope.cartaMenu = [
+            {
+                id: 1,
+                nombre: "Desayuno",
+                productos: [
+                    {
+                        id: 100,
+                        nombre: "Café Doble",
+                        precio: 16.00
+                    },
+                    {
+                        id: 101,
+                        nombre: "Café Con Leche Doble",
+                        precio: 18.00
+                    }
+                ]
+            }
+        ];
     }
 ]);

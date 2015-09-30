@@ -1,8 +1,8 @@
 div(class="col-sm-10 col-sm-offset-1 animated zoomIn")
     h1 Edición de la Carta de Menú
 
-    div(ng-repeat="categoria in [0,1,2,3,4]")
-        legend Desayuno
+    div(ng-repeat="categoria in cartaMenu")
+        legend {{ categoria.nombre }}
 
         table(class="table table-bordered table-striped")
             thead
@@ -11,11 +11,8 @@ div(class="col-sm-10 col-sm-offset-1 animated zoomIn")
                     th Descripción
                     th Precio
             tbody
-                tr
-                    td 1
-                    td Café Doble
-                    td $ 16.00
-                tr
-                    td 2
-                    td Café con Leche Doble
-                    td $ 18.00
+                tr(ng-repeat="producto in categoria.productos")
+                    td {{ $index + 1}}
+                    td {{ producto.nombre }}
+                    td $ {{ producto.precio }}
+    pre {{ cartaMenu | json }}
