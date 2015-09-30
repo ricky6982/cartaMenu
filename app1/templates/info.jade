@@ -1,2 +1,19 @@
-div(class="col-sm-10 col-sm-offset-1")
+div(class="col-sm-10 col-sm-offset-1 animated zoomIn")
     h1 Información de la Confiteria
+
+    form(name="info", class="form-horizontal")
+        div(class="form-group")
+            label(class="col-sm-3 control-label") Nombre de la Confiteria: 
+            div(class="col-sm-6")
+                input(type="text", class="form-control")
+        div(class="form-group")
+            label(class="col-sm-3 control-label") Dirección:
+            div(class="col-sm-6")
+                input(type="text", class="form-control")
+        div(class="form-group")
+            label(class="col-sm-3 control-label") Teléfono:
+            div(class="col-sm-6")
+                input(type="text", class="form-control")
+        div(class="form-group")
+            div(class="col-sm-6 col-sm-offset-3")
+                input(type="button", class="btn btn-primary", value="Guardar")
