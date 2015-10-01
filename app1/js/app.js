@@ -30,10 +30,10 @@ app.controller('AppCtrl', [
             nuevo: function(){
                 categoria = {};
                 categoria.nombre = $scope.categoriaModal.nombre;
-                var a = $scope.cartaMenu;
                 categoria.id = generateId($scope.cartaMenu);
                 categoria.productos = [];
                 $scope.cartaMenu.push(categoria);
+                $scope.categoriaModal.nombre = "";
             }
         };
 
@@ -42,13 +42,14 @@ app.controller('AppCtrl', [
         $scope.producto = {
             nuevo: function(idCategoria){
                 $scope.categoriaSelected = idCategoria;
-                console.log($scope.categoriaSelected);
             },
             guardar: function(){
                 var categoria = _.find($scope.cartaMenu, {id: $scope.categoriaSelected});
                 var producto = angular.copy($scope.productoModal);
                 producto.id = generateId(categoria.productos);
                 categoria.productos.push(producto);
+                $scope.productoModal.nombre = "";
+                $scope.productoModal.precio = "";
             }
         };
 
