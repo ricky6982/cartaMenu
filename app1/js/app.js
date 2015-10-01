@@ -25,6 +25,20 @@ app.config([
 app.controller('AppCtrl', [
     '$scope',
     function($scope){
+        $scope.categoriaNuevo = function(){
+            categoria = {};
+            categoria.nombre = $scope.categoriaModal.nombre;
+            var a = $scope.cartaMenu;
+            var max = _.max(a, function(a){ return a.id; });
+            if ( max === -Infinity ) {
+                categoria.id = 1;
+            }else{
+                categoria.id =  max.id + 1;
+            }
+            categoria.productos = [];
+            $scope.cartaMenu.push(categoria);
+        };
+
         $scope.cartaMenu = [
             {
                 id: 1,
@@ -59,5 +73,9 @@ app.controller('AppCtrl', [
                 ]
             }
         ];
+
+        dbg = {
+            cartaMenu: $scope.cartaMenu
+        };
     }
 ]);

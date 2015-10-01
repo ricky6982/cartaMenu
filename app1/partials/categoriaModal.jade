@@ -9,6 +9,7 @@ div(class="modal fade", id="categoriaModal", tabindex="-1", role="dialog", aria-
                 div(class="form-group")
                     label(class="col-sm-3 control-label") Nombre:
                     div(class="col-sm-6")
-                        input(type="text", class="form-control")
+                        input(type="text", class="form-control", ng-model="categoriaModal.nombre")
             div(class="modal-footer")
                 button(type="button", class="btn btn-default", data-dismiss="modal") Cerrar
+                button(type="button", class="btn btn-primary", data-dismiss="modal", ng-click="categoriaNuevo()") Guardar
