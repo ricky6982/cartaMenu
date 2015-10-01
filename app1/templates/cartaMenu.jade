@@ -7,7 +7,7 @@ div(class="col-sm-10 col-sm-offset-1 animated zoomIn")
     div(ng-repeat="categoria in cartaMenu")
         legend
             | {{ categoria.nombre }}
-            button(class="btn btn-primary btn-xs", data-toggle="modal", data-target="#productoModal")
+            button(class="btn btn-primary btn-xs", data-toggle="modal", data-target="#productoModal", ng-click="producto.nuevo(categoria.id)")
                 i(class="glyphicon glyphicon-plus") 
                 |  Producto
 

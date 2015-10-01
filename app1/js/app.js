@@ -25,19 +25,41 @@ app.config([
 app.controller('AppCtrl', [
     '$scope',
     function($scope){
-        $scope.categoriaNuevo = function(){
-            categoria = {};
-            categoria.nombre = $scope.categoriaModal.nombre;
-            var a = $scope.cartaMenu;
-            var max = _.max(a, function(a){ return a.id; });
-            if ( max === -Infinity ) {
-                categoria.id = 1;
-            }else{
-                categoria.id =  max.id + 1;
+
+        $scope.categoria = {
+            nuevo: function(){
+                categoria = {};
+                categoria.nombre = $scope.categoriaModal.nombre;
+                var a = $scope.cartaMenu;
+                categoria.id = generateId($scope.cartaMenu);
+                categoria.productos = [];
+                $scope.cartaMenu.push(categoria);
             }
-            categoria.productos = [];
-            $scope.cartaMenu.push(categoria);
         };
+
+        $scope.categoriaSelected = 0;
+
+        $scope.producto = {
+            nuevo: function(idCategoria){
+                $scope.categoriaSelected = idCategoria;
+                console.log($scope.categoriaSelected);
+            },
+            guardar: function(){
+                var categoria = _.find($scope.cartaMenu, {id: $scope.categoriaSelected});
+                var producto = angular.copy($scope.productoModal);
+                producto.id = generateId(categoria.productos);
+                categoria.productos.push(producto);
+            }
+        };
+
+        function generateId(list){
+            var max = _.max(list, function(list){ return list.id; });
+            if ( max === -Infinity ) {
+                return 1;
+            }else{
+                return max.id + 1;
+            }
+        }
 
         $scope.cartaMenu = [
             {

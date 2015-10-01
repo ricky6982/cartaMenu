@@ -6,7 +6,7 @@
   </div>
   <div ng-repeat="categoria in cartaMenu">
     <legend>{{ categoria.nombre }}
-      <button data-toggle="modal" data-target="#productoModal" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-plus"> </i> Producto</button>
+      <button data-toggle="modal" data-target="#productoModal" ng-click="producto.nuevo(categoria.id)" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-plus"> </i> Producto</button>
     </legend>
     <table class="table table-bordered table-striped">
       <thead>

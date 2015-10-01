@@ -9,12 +9,14 @@ div(class="modal fade", id="productoModal", tabindex="-1", role="dialog", aria-l
                 div(class="form-group")
                     label(class="col-sm-3 control-label") Descripción
                     div(class="col-sm-6")
-                        input(type="text", class="form-control")
+                        input(type="text", class="form-control", ng-model="productoModal.nombre")
                 div(class="form-group")
                     label(class="col-sm-3 control-label") Precio
                     div(class="col-sm-4")
                         div(class="input-group")
                             div(class="input-group-addon") $
-                            input(type="text", class="form-control")
+                            input(type="text", class="form-control", ng-model="productoModal.precio")
+                input(type="hidden", ng-model="productoModal.categoria")
             div(class="modal-footer")
                 button(type="button", class="btn btn-default", data-dismiss="modal") Cerrar
+                button(type="button", class="btn btn-primary", data-dismiss="modal", ng-click="producto.guardar()") Guardar
