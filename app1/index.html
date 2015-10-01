@@ -29,6 +29,57 @@
     </div>
     <div style="margin: 10px;" class="row">
       <div ui-view class="row"></div>
+      <div id="categoriaModal" tabindex="-1" role="dialog" aria-labelledby="MyModalLabel" class="modal fade">
+        <div role="document" class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Nueva Categoria</h4>
+            </div>
+            <div class="modal-body form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Nombre:</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" data-dismiss="modal" class="btn btn-default">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="productoModal" tabindex="-1" role="dialog" aria-labelledby="MyModalLabel" class="modal fade">
+        <div role="document" class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Nuevo Producto</h4>
+            </div>
+            <div class="modal-body form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Descripción</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Precio</label>
+                <div class="col-sm-4">
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" data-dismiss="modal" class="btn btn-default">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </body>

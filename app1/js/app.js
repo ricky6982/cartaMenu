@@ -41,6 +41,22 @@ app.controller('AppCtrl', [
                         precio: 18.00
                     }
                 ]
+            },
+            {
+                id: 2,
+                nombre: "Bebidas",
+                productos: [
+                    {
+                        id: 102,
+                        nombre: "Coca Cola 250ml",
+                        precio: 10.00
+                    },
+                    {
+                        id: 103,
+                        nombre: "Fanta 1Lts",
+                        precio: 18.00
+                    }
+                ]
             }
         ];
     }

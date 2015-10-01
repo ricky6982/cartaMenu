@@ -1,8 +1,16 @@
 div(class="col-sm-10 col-sm-offset-1 animated zoomIn")
     h1 Edición de la Carta de Menú
-
+    div(class="pull-right")
+        button(type="button", class="btn btn-warning", data-toggle="modal", data-target="#categoriaModal") 
+            i(class="glyphicon glyphicon-plus") 
+            |  Categoria
     div(ng-repeat="categoria in cartaMenu")
-        legend {{ categoria.nombre }}
+        legend
+            | {{ categoria.nombre }}
+            button(class="btn btn-primary btn-xs", data-toggle="modal", data-target="#productoModal")
+                i(class="glyphicon glyphicon-plus") 
+                |  Producto
+
 
         table(class="table table-bordered table-striped")
             thead
