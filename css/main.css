@@ -26,3 +26,10 @@ header h2 {
   font-style: italic;
   padding: 10px;
 }
+.table-header thead {
+  background-color: #0B64BA;
+  color: white;
+}
+.table-header thead th {
+  text-align: center;
+}

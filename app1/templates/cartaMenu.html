@@ -27,7 +27,7 @@
       <button data-toggle="modal" data-target="#productoModal" ng-click="producto.nuevo(categ.id)" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-plus"> </i> Producto</button>
     </legend>
     <h2 ng-hide="categ.productos.length &gt; 0" class="text-center text-muted">Todavia no hay productos en esta categoría.</h2>
-    <table ng-show="categ.productos.length &gt; 0" class="table table-bordered table-striped">
+    <table ng-show="categ.productos.length &gt; 0" class="table table-bordered table-striped table-header">
       <thead>
         <tr>
           <th>#</th>

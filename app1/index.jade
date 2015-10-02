@@ -12,4 +12,6 @@ block contenido
     include partials/productoModal.jade
     
     div(class="row", style="margin-top: 30px;")
-        pre {{ cartaMenu | json }}
+        pre
+            legend Modelo
+            | {{ cartaMenu | json }}
