@@ -10,3 +10,6 @@ block contenido
     div(class="row", ui-view)
     include partials/categoriaModal.jade
     include partials/productoModal.jade
+    
+    div(class="row", style="margin-top: 30px;")
+        pre {{ cartaMenu | json }}

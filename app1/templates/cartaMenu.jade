@@ -4,15 +4,17 @@ div(class="col-sm-10 col-sm-offset-1 animated zoomIn")
         button(type="button", class="btn btn-warning", data-toggle="modal", data-target="#categoriaModal") 
             i(class="glyphicon glyphicon-plus") 
             |  Categoria
-    div(ng-repeat="categoria in cartaMenu")
+    
+    h2(class="text-center text-muted", ng-hide="cartaMenu.length > 0") Primero debes agregar una Categoría. 
+    div(ng-repeat="categoria in cartaMenu", ng-show="cartaMenu.length > 0")
         legend
             | {{ categoria.nombre }}
             button(class="btn btn-primary btn-xs", data-toggle="modal", data-target="#productoModal", ng-click="producto.nuevo(categoria.id)")
                 i(class="glyphicon glyphicon-plus") 
                 |  Producto
 
-
-        table(class="table table-bordered table-striped")
+        h2(class="text-center text-muted", ng-hide="categoria.productos.length > 0") Todavia no hay productos en esta categoría.
+        table(class="table table-bordered table-striped", ng-show="categoria.productos.length > 0")
             thead
                 tr
                     th #
@@ -23,4 +25,3 @@ div(class="col-sm-10 col-sm-offset-1 animated zoomIn")
                     td {{ $index + 1}}
                     td {{ producto.nombre }}
                     td $ {{ producto.precio }}
-    pre {{ cartaMenu | json }}
