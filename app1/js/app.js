@@ -34,6 +34,11 @@ app.controller('AppCtrl', [
                 categoria.productos = [];
                 $scope.cartaMenu.push(categoria);
                 $scope.categoriaModal.nombre = "";
+            },
+            borrar: function(index){
+                if (confirm('¿Esta seguro de que desea eliminar la Categoria y todos sus productos?')) {
+                    $scope.cartaMenu.splice(index, 1);
+                }
             }
         };
 

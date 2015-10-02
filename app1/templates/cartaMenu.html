@@ -11,7 +11,7 @@
         <button type="button" data-toggle="dropdown" class="btn btn-link dropdown-toggle"><i class="glyphicon glyphicon-cog"> </i></button>
         <ul class="dropdown-menu">
           <li> <a>Editar categoría</a></li>
-          <li> <a>Borrar categoría</a></li>
+          <li> <a ng-click="categoria.borrar()"><i class="glyphicon glyphicon-trash"></i> Borrar categoría</a></li>
         </ul>
       </div>{{ categ.nombre }}
       <button data-toggle="modal" data-target="#productoModal" ng-click="producto.nuevo(categ.id)" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-plus"> </i> Producto</button>

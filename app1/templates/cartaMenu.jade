@@ -18,7 +18,9 @@ div(class="col-sm-10 col-sm-offset-1 animated zoomIn")
                     li 
                         a Editar categoría
                     li 
-                        a Borrar categoría
+                        a(ng-click="categoria.borrar()")
+                            i(class="glyphicon glyphicon-trash")
+                            |  Borrar categoría
             | {{ categ.nombre }}
             button(class="btn btn-primary btn-xs", data-toggle="modal", data-target="#productoModal", ng-click="producto.nuevo(categ.id)")
                 i(class="glyphicon glyphicon-plus") 
