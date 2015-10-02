@@ -5,24 +5,29 @@
     <button type="button" data-toggle="modal" data-target="#categoriaModal" class="btn btn-warning"> <i class="glyphicon glyphicon-plus"> </i> Categoria</button>
   </div>
   <h2 ng-hide="cartaMenu.length &gt; 0" class="text-center text-muted">Primero debes agregar una Categoría. </h2>
-  <div ng-repeat="categoria in cartaMenu" ng-show="cartaMenu.length &gt; 0">
-    <legend>{{ categoria.nombre }}
-      <button data-toggle="modal" data-target="#productoModal" ng-click="producto.nuevo(categoria.id)" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-plus"> </i> Producto</button>
+  <div ng-repeat="categ in cartaMenu" ng-show="cartaMenu.length &gt; 0">
+    <legend>{{ categ.nombre }}
+      <button data-toggle="modal" data-target="#productoModal" ng-click="producto.nuevo(categ.id)" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-plus"> </i> Producto</button>
     </legend>
-    <h2 ng-hide="categoria.productos.length &gt; 0" class="text-center text-muted">Todavia no hay productos en esta categoría.</h2>
-    <table ng-show="categoria.productos.length &gt; 0" class="table table-bordered table-striped">
+    <h2 ng-hide="categ.productos.length &gt; 0" class="text-center text-muted">Todavia no hay productos en esta categoría.</h2>
+    <table ng-show="categ.productos.length &gt; 0" class="table table-bordered table-striped">
       <thead>
         <tr>
           <th>#</th>
           <th>Descripción</th>
           <th>Precio</th>
+          <th style="width: 150px;"></th>
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="producto in categoria.productos">
+        <tr ng-repeat="prod in categ.productos">
           <td>{{ $index + 1}}</td>
-          <td>{{ producto.nombre }}</td>
-          <td>$ {{ producto.precio }}</td>
+          <td>{{ prod.nombre }}</td>
+          <td>$ {{ prod.precio }}</td>
+          <td class="text-center">
+            <button ng-click="producto.editar()" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-pencil"></i> Editar</button>
+            <button ng-click="producto.borrar(categ.id, $index)" class="btn btn-danger btn-xs"> <i class="glyphicon glyphicon-trash"></i> Borrar</button>
+          </td>
         </tr>
       </tbody>
     </table>

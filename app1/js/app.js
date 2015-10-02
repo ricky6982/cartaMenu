@@ -50,6 +50,15 @@ app.controller('AppCtrl', [
                 categoria.productos.push(producto);
                 $scope.productoModal.nombre = "";
                 $scope.productoModal.precio = "";
+            },
+            editar: function(){
+                console.log('Editando Producto.');
+            },
+            borrar: function(idCateg, indexProd){
+                if (confirm('¿Esta seguro que desea eliminar el Producto?')) {
+                    var categoria = _.find($scope.cartaMenu, {id: idCateg});
+                    categoria.productos.splice(indexProd, 1);
+                }
             }
         };
 

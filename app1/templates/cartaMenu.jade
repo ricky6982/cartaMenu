@@ -6,22 +6,30 @@ div(class="col-sm-10 col-sm-offset-1 animated zoomIn")
             |  Categoria
     
     h2(class="text-center text-muted", ng-hide="cartaMenu.length > 0") Primero debes agregar una Categoría. 
-    div(ng-repeat="categoria in cartaMenu", ng-show="cartaMenu.length > 0")
+    div(ng-repeat="categ in cartaMenu", ng-show="cartaMenu.length > 0")
         legend
-            | {{ categoria.nombre }}
-            button(class="btn btn-primary btn-xs", data-toggle="modal", data-target="#productoModal", ng-click="producto.nuevo(categoria.id)")
+            | {{ categ.nombre }}
+            button(class="btn btn-primary btn-xs", data-toggle="modal", data-target="#productoModal", ng-click="producto.nuevo(categ.id)")
                 i(class="glyphicon glyphicon-plus") 
                 |  Producto
 
-        h2(class="text-center text-muted", ng-hide="categoria.productos.length > 0") Todavia no hay productos en esta categoría.
-        table(class="table table-bordered table-striped", ng-show="categoria.productos.length > 0")
+        h2(class="text-center text-muted", ng-hide="categ.productos.length > 0") Todavia no hay productos en esta categoría.
+        table(class="table table-bordered table-striped", ng-show="categ.productos.length > 0")
             thead
                 tr
                     th #
                     th Descripción
                     th Precio
+                    th(style="width: 150px;")
             tbody
-                tr(ng-repeat="producto in categoria.productos")
+                tr(ng-repeat="prod in categ.productos")
                     td {{ $index + 1}}
-                    td {{ producto.nombre }}
-                    td $ {{ producto.precio }}
+                    td {{ prod.nombre }}
+                    td $ {{ prod.precio }}
+                    td(class="text-center")
+                        button(class="btn btn-info btn-xs", ng-click="producto.editar()")
+                            i(class="glyphicon glyphicon-pencil")
+                            |  Editar
+                        button(class="btn btn-danger btn-xs", ng-click="producto.borrar(categ.id, $index)") 
+                            i(class="glyphicon glyphicon-trash")
+                            |  Borrar
