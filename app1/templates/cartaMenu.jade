@@ -10,18 +10,24 @@ div(class="col-sm-10 col-sm-offset-1 animated zoomIn")
     
     h2(class="text-center text-muted", ng-hide="cartaMenu.length > 0") Primero debes agregar una Categoría. 
     div(ng-repeat="categ in cartaMenu", ng-show="cartaMenu.length > 0")
-        legend
+        legend(class="form-inline")
             div(class="btn-group")
-                button(type="button",class="btn btn-link dropdown-toggle", data-toggle="dropdown")
-                    i(class="glyphicon glyphicon-cog") 
-                ul(class="dropdown-menu")
-                    li 
-                        a Editar categoría
-                    li 
-                        a(ng-click="categoria.borrar()")
-                            i(class="glyphicon glyphicon-trash")
-                            |  Borrar categoría
-            | {{ categ.nombre }}
+                div(class="dropdown")
+                    button(type="button", class="btn btn-link dropdown-toggle", data-toggle="dropdown")
+                        i(class="glyphicon glyphicon-cog") 
+                    ul(class="dropdown-menu")
+                        li 
+                            button(class="btn btn-link", ng-click="categoria.editar($index)")
+                                i(class="glyphicon glyphicon-pencil")
+                                |  Editar categoría
+                        li 
+                            button(class="btn btn-link", ng-click="categoria.borrar()")
+                                i(class="glyphicon glyphicon-trash")
+                                |  Borrar categoría
+            span(ng-hide="categoria.selected == $index") {{ categ.nombre }}
+            form(class="form-group", ng-show="categoria.selected == $index")
+                input(type="text", class="form-control", ng-model="categ.nombre")
+                button(class="btn btn-success", ng-click="categoria.endEdit()") OK
             button(class="btn btn-primary btn-xs", data-toggle="modal", data-target="#productoModal", ng-click="producto.nuevo(categ.id)")
                 i(class="glyphicon glyphicon-plus") 
                 |  Producto

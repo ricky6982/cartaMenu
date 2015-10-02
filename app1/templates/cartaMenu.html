@@ -6,14 +6,24 @@
   </div>
   <h2 ng-hide="cartaMenu.length &gt; 0" class="text-center text-muted">Primero debes agregar una Categoría. </h2>
   <div ng-repeat="categ in cartaMenu" ng-show="cartaMenu.length &gt; 0">
-    <legend>
+    <legend class="form-inline">
       <div class="btn-group">
-        <button type="button" data-toggle="dropdown" class="btn btn-link dropdown-toggle"><i class="glyphicon glyphicon-cog"> </i></button>
-        <ul class="dropdown-menu">
-          <li> <a>Editar categoría</a></li>
-          <li> <a ng-click="categoria.borrar()"><i class="glyphicon glyphicon-trash"></i> Borrar categoría</a></li>
-        </ul>
-      </div>{{ categ.nombre }}
+        <div class="dropdown">
+          <button type="button" data-toggle="dropdown" class="btn btn-link dropdown-toggle"><i class="glyphicon glyphicon-cog"> </i></button>
+          <ul class="dropdown-menu">
+            <li> 
+              <button ng-click="categoria.editar($index)" class="btn btn-link"><i class="glyphicon glyphicon-pencil"></i> Editar categoría</button>
+            </li>
+            <li> 
+              <button ng-click="categoria.borrar()" class="btn btn-link"><i class="glyphicon glyphicon-trash"></i> Borrar categoría</button>
+            </li>
+          </ul>
+        </div>
+      </div><span ng-hide="categoria.selected == $index">{{ categ.nombre }}</span>
+      <form ng-show="categoria.selected == $index" class="form-group">
+        <input type="text" ng-model="categ.nombre" class="form-control"/>
+        <button ng-click="categoria.endEdit()" class="btn btn-success">OK</button>
+      </form>
       <button data-toggle="modal" data-target="#productoModal" ng-click="producto.nuevo(categ.id)" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-plus"> </i> Producto</button>
     </legend>
     <h2 ng-hide="categ.productos.length &gt; 0" class="text-center text-muted">Todavia no hay productos en esta categoría.</h2>

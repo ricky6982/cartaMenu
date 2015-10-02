@@ -27,6 +27,7 @@ app.controller('AppCtrl', [
     function($scope){
 
         $scope.categoria = {
+            selected: -1,
             nuevo: function(){
                 categoria = {};
                 categoria.nombre = $scope.categoriaModal.nombre;
@@ -39,6 +40,12 @@ app.controller('AppCtrl', [
                 if (confirm('¿Esta seguro de que desea eliminar la Categoria y todos sus productos?')) {
                     $scope.cartaMenu.splice(index, 1);
                 }
+            },
+            editar: function(index){
+                $scope.categoria.selected = index;
+            },
+            endEdit: function(){
+                $scope.categoria.selected = -1;
             }
         };
 
