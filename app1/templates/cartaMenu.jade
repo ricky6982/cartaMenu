@@ -43,10 +43,19 @@ div(class="col-sm-10 col-sm-offset-1 animated zoomIn")
             tbody
                 tr(ng-repeat="prod in categ.productos")
                     td {{ $index + 1}}
-                    td {{ prod.nombre }}
-                    td $ {{ prod.precio }}
+                    td 
+                        span(ng-hide="producto.editForm($parent.categ.id, $index)") {{ prod.nombre }}
+                        input(type="text", ng-model="prod.nombre", class="form-control", ng-show="producto.editForm($parent.categ.id, $index)")
+                    td(style="width: 150px;")
+                        span(ng-hide="producto.editForm($parent.categ.id, $index)") $ {{ prod.precio }}
+                        div(class="input-group", ng-show="producto.editForm($parent.categ.id, $index)")
+                            div(class="input-group-addon") $ 
+                            input(type="text", ng-model="prod.precio", class="form-control")
                     td(class="text-center")
-                        button(class="btn btn-info btn-xs", ng-click="producto.editar()")
+                        button(class="btn btn-success btn-xs", ng-click="producto.endEdit()", ng-show="producto.editForm($parent.categ.id, $index)")
+                            i(class="glyphicon glyphicon-ok")
+                            |  Listo
+                        button(class="btn btn-info btn-xs", ng-click="producto.editar($parent.categ.id, $index)", ng-hide="producto.editForm($parent.categ.id, $index)")
                             i(class="glyphicon glyphicon-pencil")
                             |  Editar
                         button(class="btn btn-danger btn-xs", ng-click="producto.borrar(categ.id, $index)") 

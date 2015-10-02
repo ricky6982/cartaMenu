@@ -63,9 +63,30 @@ app.controller('AppCtrl', [
                 $scope.productoModal.nombre = "";
                 $scope.productoModal.precio = "";
             },
-            editar: function(){
-                console.log('Editando Producto.');
+
+            editable: {
+                categoria: -1,
+                producto: -1
             },
+
+            editar: function(idCateg, indexProd){
+                $scope.producto.editable.categoria = idCateg;
+                $scope.producto.editable.producto = indexProd;
+            },
+
+            editForm: function(categoria, producto){
+                if ($scope.producto.editable.categoria == categoria && $scope.producto.editable.producto == producto) {
+                    return true;
+                }else{
+                    return false;
+                }
+            },
+
+            endEdit: function(){
+                $scope.producto.editable.categoria = -1;
+                $scope.producto.editable.producto = -1;
+            },
+
             borrar: function(idCateg, indexProd){
                 if (confirm('¿Esta seguro que desea eliminar el Producto?')) {
                     var categoria = _.find($scope.cartaMenu, {id: idCateg});
