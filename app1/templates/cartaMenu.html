@@ -1,12 +1,19 @@
 
 <div class="col-sm-10 col-sm-offset-1 animated zoomIn">
-  <h1>Edición de la Carta de Menú</h1>
+  <h1> <a ui-sref="home" class="btn btn-link btn-lg"><i class="glyphicon glyphicon-th-large"></i></a>Edición de la Carta de Menú</h1>
   <div class="pull-right">
     <button type="button" data-toggle="modal" data-target="#categoriaModal" class="btn btn-warning"> <i class="glyphicon glyphicon-plus"> </i> Categoria</button>
   </div>
   <h2 ng-hide="cartaMenu.length &gt; 0" class="text-center text-muted">Primero debes agregar una Categoría. </h2>
   <div ng-repeat="categ in cartaMenu" ng-show="cartaMenu.length &gt; 0">
-    <legend>{{ categ.nombre }}
+    <legend>
+      <div class="btn-group">
+        <button type="button" data-toggle="dropdown" class="btn btn-link dropdown-toggle"><i class="glyphicon glyphicon-cog"> </i></button>
+        <ul class="dropdown-menu">
+          <li> <a>Editar categoría</a></li>
+          <li> <a>Borrar categoría</a></li>
+        </ul>
+      </div>{{ categ.nombre }}
       <button data-toggle="modal" data-target="#productoModal" ng-click="producto.nuevo(categ.id)" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-plus"> </i> Producto</button>
     </legend>
     <h2 ng-hide="categ.productos.length &gt; 0" class="text-center text-muted">Todavia no hay productos en esta categoría.</h2>
