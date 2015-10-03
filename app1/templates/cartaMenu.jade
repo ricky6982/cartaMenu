@@ -50,7 +50,7 @@ div(class="col-sm-10 col-sm-offset-1 animated zoomIn")
                         span(ng-hide="producto.editForm($parent.categ.id, $index)") $ {{ prod.precio }}
                         div(class="input-group", ng-show="producto.editForm($parent.categ.id, $index)")
                             div(class="input-group-addon") $ 
-                            input(type="text", ng-model="prod.precio", class="form-control")
+                            input(type="number", ng-model="prod.precio", class="form-control", step="0.01", data-number-to-fixed="2", data-number-stepfactor="100")
                     td(class="text-center")
                         button(class="btn btn-success btn-xs", ng-click="producto.endEdit()", ng-show="producto.editForm($parent.categ.id, $index)")
                             i(class="glyphicon glyphicon-ok")

@@ -15,7 +15,7 @@ div(class="modal fade", id="productoModal", tabindex="-1", role="dialog", aria-l
                     div(class="col-sm-4")
                         div(class="input-group")
                             div(class="input-group-addon") $
-                            input(type="text", class="form-control", ng-model="productoModal.precio")
+                            input(type="number", class="form-control currency", ng-model="productoModal.precio", min="0", step="0.01", data-number-to-fixed="2", data-number-stepfactor="100")
                 input(type="hidden", ng-model="productoModal.categoria")
             div(class="modal-footer")
                 button(type="button", class="btn btn-default", data-dismiss="modal") Cerrar

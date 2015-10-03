@@ -73,7 +73,7 @@
                 <div class="col-sm-4">
                   <div class="input-group">
                     <div class="input-group-addon">$</div>
-                    <input type="text" ng-model="productoModal.precio" class="form-control">
+                    <input type="number" ng-model="productoModal.precio" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency">
                   </div>
                 </div>
               </div>
