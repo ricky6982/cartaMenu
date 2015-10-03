@@ -104,6 +104,8 @@ app.controller('AppCtrl', [
             }
         }
 
+        $scope.confiteria = {};
+
         $scope.cartaMenu = [
             {
                 id: 1,
